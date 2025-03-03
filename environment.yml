@@ -1,0 +1,27 @@
+name: geometry_splatting
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - ffmpeg=4.2.2
+  - pillow=10.2.0
+  - pip=23.3.1
+  - python=3.8.18
+  - pytorch=2.4.1
+  - torchvision=0.19.1
+  - typing_extensions=4.9.0
+  - pip:
+    - pyembree
+    - embreex
+    - open3d==0.18.0
+    - mediapy==1.1.2
+    - lpips==0.1.4
+    - scikit-image==0.21.0
+    - tqdm==4.66.2
+    - trimesh==4.3.2
+    - plyfile
+    - opencv-python
+    - git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch
+    - git+https://github.com/facebookresearch/pytorch3d.git@stable
