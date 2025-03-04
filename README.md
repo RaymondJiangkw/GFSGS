@@ -150,7 +150,7 @@ Chamfer distance ($\times10^{-1}$) on BMVS dataset -- Scene-level Cases (lower i
 - **I want to get better geometric quality.** In this paper, we mainly focus on evaluating the proposed geometry field splatting. We are aware of many good practice developed in the community to further improve the geometric quality and intentionally choose not to incorporate them in our initial version, such as not to shadow our main contributions. Please find more discussion about this in Sec. D of our supplementary. Known issues include over-densified regions due to quite opaque 2D Gaussian kernels and geometric ambiguity. However, as an open-source repository, we may plan to incorporate some such good practice and welcome any such contributions!
 
 ## Acknowledgements
-This project is mainly built upon [2DGS](https://github.com/hbb1/2d-gaussian-splatting) and [Object as volumes](https://github.com/cmu-ci-lab/volumetric_opaque_solids). The TSDF fusion parameters are tuned following [PGSR](https://github.com/zju3dv/PGSR). We thank their authors for their great repos!
+This project is mainly built upon [2DGS](https://github.com/hbb1/2d-gaussian-splatting), [AbsGS](https://github.com/TY424/AbsGS), and [Object as volumes](https://github.com/cmu-ci-lab/volumetric_opaque_solids). The TSDF fusion parameters are tuned following [PGSR](https://github.com/zju3dv/PGSR). We thank their authors for their great repos!
 
 ## Citation
 ```bibtex
