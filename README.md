@@ -5,7 +5,7 @@
 **Geometry Field Splatting with Gaussian Surfels**<br>
 Kaiwen Jiang, Venkataram Sivaram, Cheng Peng, Ravi Ramamoorthi<br>
 
-[**Paper**](https://arxiv.org/abs/2411.17067) | [**Project**]() | [**Video**]() | [**Data\&Results**](https://drive.google.com/drive/folders/1gVJxaJ78o162CWjP-3jMkx46xcRZK_i0?usp=sharing)
+[**Paper**](https://arxiv.org/abs/2411.17067) | [**Project**]() | [**Video**](https://cseweb.ucsd.edu/~ravir/kaiwensurfel_cvpr.mp4) | [**Data\&Results**](https://drive.google.com/drive/folders/1gVJxaJ78o162CWjP-3jMkx46xcRZK_i0?usp=sharing)
 
 Abstract: *Geometric reconstruction of opaque surfaces from images is a longstanding challenge in computer vision, with renewed interest from volumetric view synthesis algorithms using radiance fields. We leverage the geometry field proposed in recent work for stochastic opaque surfaces, which can then be converted to volume densities. We adapt Gaussian kernels or surfels to splat the geometry field rather than the volume, enabling precise reconstruction of opaque solids. Our first contribution is to derive an efficient and almost exact differentiable rendering algorithm for geometry fields parameterized by Gaussian surfels, while removing current approximations involving Taylor series and no self-attenuation. Next, we address the discontinuous loss landscape when surfels cluster near geometry, showing how to guarantee that the rendered color is a continuous function of the colors of the kernels, irrespective of ordering. Finally, we use latent representations with spherical harmonics encoded reflection vectors rather than spherical harmonics encoded colors to better address specular surfaces. We demonstrate significant improvement in the quality of reconstructed 3D surfaces on widely-used datasets.*
 
@@ -82,8 +82,6 @@ Commandline arguments for adjusting the mesh granularity:
 
 ## Full Evaluation
 We provide scripts to evaluate the geometric reconstruction quality of our method. Notice that there are some randomness within each run, and we provide the extracted meshes of DTU and BMVS datasets at [this link](https://drive.google.com/drive/folders/1gVJxaJ78o162CWjP-3jMkx46xcRZK_i0?usp=sharing) for reference.
-
-There are also some discrepancies between the results of this repository and the reported results of first ArXiv version. Please be subject to this version and the final version of the paper. Generally speaking, the geometry reconstruction and view synthesis quality have been improved.
 
 ### Dataset Preparation
 We provide the processed datasets of DTU and BMVS at [this link](https://drive.google.com/drive/folders/1gVJxaJ78o162CWjP-3jMkx46xcRZK_i0?usp=sharing).
