@@ -22,4 +22,4 @@ build
 dist
 *.egg-info
 .ipynb_checkpoints
-!submodules/diff-surfel-rasterization/third_party/glm
+!submodules/diff-surfel-rasterization/third_party/glm/**
