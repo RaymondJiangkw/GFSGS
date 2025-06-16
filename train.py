@@ -96,7 +96,7 @@ def training(dataset, opt, pipe, test_interval, saving_iterations, checkpoint_it
         dist_loss = lambda_dist * (rend_dist).mean()
 
         # loss
-        total_loss = loss + dist_loss + normal_loss
+        total_loss = loss + dist_loss + normal_loss + 0.1 * torch.nn.L1Loss()(render_pkg["rend_alpha"], viewpoint_cam.gt_alpha_mask.cuda())
         
         total_loss.backward()
 

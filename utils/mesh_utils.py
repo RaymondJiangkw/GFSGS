@@ -92,7 +92,7 @@ class GaussianExtractor(object):
         self.depthmaps = []
         # self.alphamaps = []
         self.rgbmaps = []
-        # self.normals = []
+        self.normals = []
         # self.depth_normals = []
         self.viewpoint_stack = []
 
@@ -107,11 +107,12 @@ class GaussianExtractor(object):
             render_pkg = self.render(viewpoint_cam, self.gaussians)
             rgb = render_pkg['render']
             # alpha = render_pkg['rend_alpha']
-            # normal = torch.nn.functional.normalize(render_pkg['rend_normal'], dim=0) * viewpoint_cam.gt_alpha_mask
+            normal = torch.nn.functional.normalize((render_pkg['rend_normal'].permute(1, 2, 0) @ viewpoint_cam.view_world_transform[:3, :3].T).permute(2, 0, 1), dim=0)
             depth = render_pkg['surf_depth']
             # depth_normal = render_pkg['surf_normal']
             self.rgbmaps.append(rgb.cpu())
             self.depthmaps.append(depth.cpu())
+            self.normals.append(normal.cpu())
             # self.alphamaps.append(alpha.cpu())
             # self.normals.append((normal.permute(1, 2, 0) @ viewpoint_cam.view_world_transform[:3, :3].T).permute(2, 0, 1).cpu())
             # self.depth_normals.append(depth_normal.cpu())
@@ -291,6 +292,8 @@ class GaussianExtractor(object):
             save_img_u8(gt.permute(1,2,0).cpu().numpy(), os.path.join(gts_path, '{0:05d}'.format(idx) + ".png"))
             save_img_u8(self.rgbmaps[idx].permute(1,2,0).cpu().numpy(), os.path.join(render_path, '{0:05d}'.format(idx) + ".png"))
             # save_img_u8((-self.normals[idx] * 0.5 + 0.5).permute(1,2,0).cpu().numpy(), os.path.join(render_path, 'normal_{0:05d}'.format(idx) + ".png"))
-            save_img_f32(self.depthmaps[idx][0].cpu().numpy(), os.path.join(vis_path, 'depth_{0:05d}'.format(idx) + ".tiff"))
+            # save_img_f32(self.depthmaps[idx][0].cpu().numpy(), os.path.join(vis_path, 'depth_{0:05d}'.format(idx) + ".tiff"))
+            np.save(os.path.join(vis_path, 'depth_{0:05d}'.format(idx) + ".npy"), self.depthmaps[idx][0].cpu().numpy())
+            np.save(os.path.join(vis_path, 'normal_{0:05d}'.format(idx) + ".npy"), self.normals[idx].cpu().numpy())
             # save_img_u8(self.normals[idx].permute(1,2,0).cpu().numpy() * 0.5 + 0.5, os.path.join(vis_path, 'normal_{0:05d}'.format(idx) + ".png"))
             # save_img_u8(self.depth_normals[idx].permute(1,2,0).cpu().numpy() * 0.5 + 0.5, os.path.join(vis_path, 'depth_normal_{0:05d}'.format(idx) + ".png"))
