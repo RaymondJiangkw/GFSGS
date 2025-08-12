@@ -152,10 +152,11 @@ This project is mainly built upon [2DGS](https://github.com/hbb1/2d-gaussian-spl
 
 ## Citation
 ```bibtex
-@article{jiang2024geometry,
+@inproceedings{jiang2025geometry,
   title={Geometry Field Splatting with Gaussian Surfels},
   author={Jiang, Kaiwen and Sivaram, Venkataram and Peng, Cheng and Ramamoorthi, Ravi},
-  journal={arXiv preprint arXiv:2411.17067},
-  year={2024}
+  booktitle={Proceedings of the Computer Vision and Pattern Recognition Conference},
+  pages={5752--5762},
+  year={2025}
 }
 ```
