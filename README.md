@@ -38,7 +38,7 @@ python train.py -s <path to COLMAP or NeRF Synthetic dataset>
 Commandline arguments for regularizations:
 ```bash
 --lambda_normal          <number>    # hyperparameter for normal consistency
---lambda_distortion      <number>    # hyperparameter for depth distortion
+--lambda_dist            <number>    # hyperparameter for depth distortion
 --color_mode             <sh|latent> # hyperparameter for choosing the color 
                                      # representation
 
