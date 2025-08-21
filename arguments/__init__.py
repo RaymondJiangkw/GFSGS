@@ -63,7 +63,7 @@ class ParamGroup:
 
 class ModelParams(ParamGroup): 
     def __init__(self, parser, sentinel=False):
-        self.color_mode = 'sh'
+        self.color_mode = 'latent'
         self.latent_dim = 32
         self.sh_degree = 3
         self.K = 10
